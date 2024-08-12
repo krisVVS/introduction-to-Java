@@ -1,5 +1,4 @@
 package com.onto.javacourse.intro.findingArraysMedian;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -7,16 +6,10 @@ public class FindingArraysMedian
 {
     private static final Logger log = LoggerFactory.getLogger(FindingArraysMedian .class);
 
-
     /**
-     * Calculates the 1-based position of the median in the given array.
-     * <p>
-     * For arrays with length 1, it returns 1 as the only element is considered the median.
-     * For arrays with length 2 or 0, it returns -1 as a median cannot be properly determined.
-     * For other cases, it invokes the {@link #findMedian(int[])} method to find the position.
-     *
+     * @return Calculates the 1-based position of the median (The sum of the elements before and after the median should be as close as possible. The
+     * median is an element from the array.) in the given array.
      * @param array the array of integers to find the median of
-     * @return the 1-based index of the median, or -1 if the median cannot be determined
      * @author Kristian Vasilev
      */
     public int median(int[] array) {
@@ -46,15 +39,12 @@ public class FindingArraysMedian
         int m = array.length / 2;
         int result = 0;
         int diff = Integer.MAX_VALUE;
-        boolean flag = true;
+        int totalSum = calculateSum(array,0,array.length);
+        int leftSum = calculateSum(array, 0, m);
+        int rightSum = totalSum-leftSum-array[m];
 
-        while (flag) {
-            if (m == 0 || m == array.length - 1) {
-                return result;
-            }
+        while (m != 0 && m != array.length - 1) {
 
-            int leftSum = calculateSum(array, 0, m);
-            int rightSum = calculateSum(array, m + 1, array.length);
             int diffCheck = leftSum - rightSum;
 
             if (Math.abs(diffCheck) < Math.abs(diff)) {
@@ -62,12 +52,17 @@ public class FindingArraysMedian
                 result = m + 1;
 
                 if (diff < 0) {
+                    rightSum -= array[m];
+                    leftSum += array[m - 1];
                     m += 1;
                 } else {
+                    rightSum += array[m];
+                    leftSum -= array[m - 1];
                     m -= 1;
                 }
+
             } else {
-                flag = false;
+                break;
             }
         }
         return result;

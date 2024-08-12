@@ -1,8 +1,7 @@
 package com.onto.javacourse.intro.findingArraysMedian;
-
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
+
 class FindingArraysMedianTest {
     FindingArraysMedian  findingArraysMedian = new FindingArraysMedian ();
 
@@ -38,8 +37,7 @@ class FindingArraysMedianTest {
      void findingArraysMedian_basicTest2() {
         int [] array = {4,5,99,-1,5,6};
         int actual = findingArraysMedian.median(array);
-        int expected = 3;
-        assertEquals(expected, actual);
+        assertEquals(3, actual);
 
     }
 
@@ -47,8 +45,7 @@ class FindingArraysMedianTest {
      void findingArraysMedianTest_basicTest1() {
         int [] array = {1,2,3,4,5};
         int actual = findingArraysMedian.median(array);
-        int expected = 4;
-        assertEquals(expected, actual);
+        assertEquals(4, actual);
     }
 
     @Test
@@ -71,4 +68,5 @@ class FindingArraysMedianTest {
         int result = findingArraysMedian.median(array);
         assertEquals(5, result);
     }
+
 }
