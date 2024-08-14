@@ -1,5 +1,4 @@
 package com.onto.javacourse.intro.findingArraysMedian;
-
 import com.onto.javacourse.intro.arrayprocessing.ArrayProcessing;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
