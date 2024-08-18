@@ -2,6 +2,12 @@ package com.onto.javacourse.intro.mergesort;
 
 public class MergeSort {
 
+    /**
+     * Sorts the given array of integers using the merge sort algorithm.
+     *
+     * @param array the array of integers to be sorted
+     * @throws NullPointerException if the array is {@code null}
+     */
     public static void mergeSort(int[] array) {
         int length = array.length;
         if (length < 2) {
@@ -23,6 +29,14 @@ public class MergeSort {
         merge(leftArray, rightArray, array);
     }
 
+    /**
+     * Merges two sorted sub-arrays into a single sorted array.
+     *
+     * @param leftArray  the left sub-array, which is already sorted
+     * @param rightArray the right sub-array, which is already sorted
+     * @param array      the array into which the merged elements will be placed
+     * @throws NullPointerException if any of the arrays are {@code null}
+     */
     private static void merge(int[] leftArray, int[] rightArray, int[] array) {
         int leftSize = array.length / 2;
         int rightSize = array.length - leftSize;
