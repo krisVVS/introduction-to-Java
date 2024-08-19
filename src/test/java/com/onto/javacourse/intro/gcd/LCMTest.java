@@ -1,4 +1,4 @@
-package com.onto.javacource.intro.gcd;
+package com.onto.javacourse.intro.gcd;
 
 import com.onto.javacourse.intro.gcd.GCD;
 import org.junit.jupiter.api.Test;
