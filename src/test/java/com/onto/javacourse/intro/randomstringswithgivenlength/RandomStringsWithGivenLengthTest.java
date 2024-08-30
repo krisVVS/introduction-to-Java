@@ -23,9 +23,7 @@ class RandomStringsWithGivenLengthTest {
     void testGenerateRandomStringValidCharacters() {
         int length = 50;
         String randomString = RandomStringsWithGivenLength.generateRandomString(length);
-
         assertNotNull(randomString);
-
         for (char c : randomString.toCharArray()) {
             assertTrue((c >= '0' && c <= '9') ||
                     (c >= 'A' && c <= 'Z') ||
@@ -37,7 +35,6 @@ class RandomStringsWithGivenLengthTest {
     void testGenerateRandomStringRandomness() {
         String randomString1 = RandomStringsWithGivenLength.generateRandomString(10);
         String randomString2 = RandomStringsWithGivenLength.generateRandomString(10);
-
         assertNotNull(randomString1);
         assertNotNull(randomString2);
         assertNotEquals(randomString1, randomString2);
