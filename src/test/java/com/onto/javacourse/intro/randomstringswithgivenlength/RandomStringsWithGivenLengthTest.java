@@ -1,9 +1,10 @@
 package com.onto.javacourse.intro.randomstringswithgivenlength;
-
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import java.util.regex.Pattern;
 
 class RandomStringsWithGivenLengthTest {
+    private static final Pattern VALID_CHAR_PATTERN = Pattern.compile("[0-9A-Za-z]*");
 
     @Test
     void testGenerateRandomStringLength() {
@@ -24,10 +25,9 @@ class RandomStringsWithGivenLengthTest {
         int length = 50;
         String randomString = RandomStringsWithGivenLength.generateRandomString(length);
         assertNotNull(randomString);
+        assertEquals(length, randomString.length());
         for (char c : randomString.toCharArray()) {
-            assertTrue((c >= '0' && c <= '9') ||
-                    (c >= 'A' && c <= 'Z') ||
-                    (c >= 'a' && c <= 'z'));
+            assertTrue(VALID_CHAR_PATTERN.matcher(String.valueOf(c)).matches());
         }
     }
 
