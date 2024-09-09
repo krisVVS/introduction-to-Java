@@ -40,15 +40,23 @@ class SummingLargeNumbersTest {
 
     @Test
     void testNumbersOfDifferentLengths() {
-        String input = "123 1111";
-        String expected = "1234";
+        String input = "99999 1";
+        String expected = "100000";
+        String actual = SummingLargeNumbers.summingLargeNumbers(input);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void testNumbersOfDifferentLengths2() {
+        String input = "0 100001";
+        String expected = "100001";
         String actual = SummingLargeNumbers.summingLargeNumbers(input);
         assertEquals(expected, actual);
     }
 
     @Test
     void testInvalidInput() {
-        String input = "123 abc";
+        String input = "123 123!@#$123";
         String actual = SummingLargeNumbers.summingLargeNumbers(input);
         assertNull(actual);
     }

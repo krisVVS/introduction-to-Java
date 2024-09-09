@@ -4,6 +4,9 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Provides a method to sum two large numbers represented as strings.
+ * The algorithm of reversing them and adding extra 0s until both of the numbers are the same length
+ * After that we add every two one-digit numbers together + carry value which differs between 1 and 0
+ * according if the sum of the two is more or less than 9
  */
 public class SummingLargeNumbers {
 
@@ -18,16 +21,12 @@ public class SummingLargeNumbers {
     public static String summingLargeNumbers(String input) {
         StringBuilder result = new StringBuilder();
 
-        if (checkForLetters(input)) {
+        if (!isValidInput(input)) {
             log.error("Wrong input: {}", input);
             return null;
         }
 
         String[] array = input.split(" ");
-        if (array.length != 2) {
-            log.error("Wrong input: {}", input);
-            return null;
-        }
 
         array[0] = removeLeadingZeros(array[0]);
         array[1] = removeLeadingZeros(array[1]);
@@ -68,9 +67,10 @@ public class SummingLargeNumbers {
      * @param str the string to check
      * @return true if the string contains letters, false otherwise
      */
-    private static boolean checkForLetters(String str) {
-        return str.matches(".*[a-zA-Z].*");
+    private static boolean isValidInput(String str) {
+        return str.matches("\\d+ \\d+");
     }
+
 
     /**
      * Removes leading zeros from a string representation of a number.
