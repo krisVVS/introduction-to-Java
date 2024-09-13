@@ -1,17 +1,26 @@
 package com.onto.javacourse.objectsinjava;
+import com.onto.javacourse.objectsinjava.hierachyoffigures.*;
+import com.onto.javacourse.objectsinjava.ontorobot.OntoRobot;
+import kareltherobot.*;
+import static kareltherobot.Directions.East;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        World.setVisible(true);
+        World.setDelay(30);
+        OntoRobot robot = new OntoRobot(1, 1, East, 100);
+        Figure dot = new Dot();
+        Figure line = new Line();
+        Figure square = new Square();
+        Figure rectangle = new Rectangle();
+        robot.move();
+        robot.turnLeft();
+        robot.move();
+        robot.turnRight();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        robot.draw(line, 4);
+        robot.move();
     }
 }
