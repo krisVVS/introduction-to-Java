@@ -6,6 +6,9 @@ public class Rectangle extends Figure  {
 
     @Override
     public void draw(OntoRobot robot, int... params) {
+        if (params.length != 2) {
+            throw new IllegalArgumentException("Rectangle requires at least 2 parameters: width and height.");
+        }
         int width = params[0];
         int height = params[1];
         for (int i = 0; i < 2; i++) {

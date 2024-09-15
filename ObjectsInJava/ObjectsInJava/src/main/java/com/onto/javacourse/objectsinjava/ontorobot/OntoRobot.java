@@ -15,7 +15,7 @@ public class OntoRobot extends UrRobot {
         World.setDelay(0);
         turnLeft();
         turnLeft();
-        World.setDelay(30);
+        World.setDelay(0);
         turnLeft();
     }
 
