@@ -9,6 +9,7 @@ public class Line extends Figure{
         if (params.length != 1) {
             throw new IllegalArgumentException("Line requires only 1 parameter: length.");
         }
+
         int length = params[0];
         for (int i = 0; i < length; i++) {
             robot.putBeeper();

@@ -22,6 +22,8 @@ public class Main {
         OntoRobot robotDoorHandle = new OntoRobot(14, 19, North, 1);
         OntoRobot robotDiagonal = new OntoRobot(34, 10, East, 100);
         OntoRobot robotWindow = new OntoRobot(22, 27, East, 100);
+        OntoRobot robotInsideWindow = new OntoRobot(22, 30, East, 100);
+        OntoRobot robotInsideWindow2 = new OntoRobot(25, 27, East, 100);
 
         robotStreet.draw(line, 50);
         robotSquare.draw(rectangle, 29, 25);
@@ -30,6 +32,19 @@ public class Main {
         robotDiagonal.draw(diagonal,15, 1);
         robotDiagonal.draw(diagonal, 15, -1);
         robotWindow.draw(square, 8);
+        robotInsideWindow.draw(rectangle, 2, 8);
+        robotInsideWindow2.draw(rectangle, 8, 2);
+
+        robotStreet.setVisible(false);
+        robotSquare.setVisible(false);
+        robotDoor.setVisible(false);
+        robotDoorHandle.setVisible(false);
+        robotDiagonal.setVisible(false);
+        robotWindow.setVisible(false);
+        robotInsideWindow.setVisible(false);
+        robotInsideWindow2.setVisible(false);
+
+
 
     }
 }
