@@ -7,7 +7,7 @@ public class Diagonal extends Figure {
     @Override
     public void draw(OntoRobot robot, int... params) {
         // Ensure there are enough parameters
-        if (params.length < 2) {
+        if (params.length != 2) {
             throw new IllegalArgumentException("Diagonal requires at least 2 parameters: length and direction.");
         }
 
@@ -15,14 +15,16 @@ public class Diagonal extends Figure {
         int direction = params[1]; // Direction: 1 for bottom-left to top-right, -1 for top-left to bottom-right
 
         // Draw the diagonal
-        for (int i = 1; i < length; i++) {
+        for (int i = 0; i < length; i++) {
             robot.putBeeper();
-            robot.move(); // Move forward to the next position
-            if (direction == 1) {
+
+            if (direction == 1 && i != length - 1) {
+                robot.move();
                 robot.turnLeft();
                 robot.move();
                 robot.turnRight();
-            } else if (direction == -1) {
+            } else if (direction == -1 && i != length - 1) {
+                robot.move();
                 robot.turnRight();
                 robot.move();
                 robot.turnLeft();
