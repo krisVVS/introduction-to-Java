@@ -1,20 +1,28 @@
 package com.onto.javacourse.objectsinjava.hierachyoffigures;
-
 import com.onto.javacourse.objectsinjava.ontorobot.OntoRobot;
 
+/**
+ * Represents a diagonal figure that can be drawn by an OntoRobot.
+ */
 public class Diagonal extends Figure {
 
+    /**
+     * Draws a diagonal using the specified robot.
+     *
+     * @param robot  the OntoRobot used to draw the diagonal
+     * @param params an array containing the length of the diagonal and the direction
+     *               (1 for bottom-left to top-right, -1 for top-left to bottom-right)
+     * @throws IllegalArgumentException if the length and direction are not provided
+     */
     @Override
     public void draw(OntoRobot robot, int... params) {
-        // Ensure there are enough parameters
         if (params.length != 2) {
             throw new IllegalArgumentException("Diagonal requires at least 2 parameters: length and direction.");
         }
 
-        int length = params[0]; // Length of the diagonal
-        int direction = params[1]; // Direction: 1 for bottom-left to top-right, -1 for top-left to bottom-right
+        int length = params[0];
+        int direction = params[1];
 
-        // Draw the diagonal
         for (int i = 0; i < length; i++) {
             robot.putBeeper();
 
