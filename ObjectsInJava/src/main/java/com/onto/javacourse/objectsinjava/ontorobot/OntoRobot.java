@@ -38,7 +38,6 @@ public class OntoRobot extends UrRobot {
         World.setDelay(0);
         turnLeft();
         turnLeft();
-        World.setDelay(0);
         turnLeft();
         switch (direction) {
             case "East" -> direction = "South";
@@ -67,6 +66,78 @@ public class OntoRobot extends UrRobot {
             case "North" -> street += 1;
         }
     }
+
+    public void moveTo(int street, int avenue) {
+        if (street > this.street) {
+            turnToDirection("North");
+        }
+        else if (street < this.street) {
+            turnToDirection("South");
+        }
+        moveSteps(Math.abs(this.street - street));
+
+        if (avenue > this.avenue) {
+            turnToDirection("East");
+        }
+        else if (avenue < this.avenue) {
+            turnToDirection("West");
+        }
+        moveSteps(Math.abs(this.avenue - avenue));
+    }
+
+
+    private void turnToDirection(String desiredDirection) {
+        switch (direction) {
+            case "North" -> {
+                switch (desiredDirection) {
+                    case "East" -> turningRight();
+                    case "South" -> {
+                        turningLeft();
+                        turningLeft();
+                    }
+                    case "West" -> turningLeft();
+                }
+            }
+            case "East" -> {
+                switch (desiredDirection) {
+                    case "South" -> turningRight();
+                    case "West" -> {
+                        turningLeft();
+                        turningLeft();
+                    }
+                    case "North" -> turningLeft();
+                }
+            }
+            case "South" -> {
+                switch (desiredDirection) {
+                    case "West" -> turningRight();
+                    case "North" -> {
+                        turningLeft();
+                        turningLeft();
+                    }
+                    case "East" -> turningLeft();
+                }
+            }
+            case "West" -> {
+                switch (desiredDirection) {
+                    case "North" -> turningRight();
+                    case "East" -> {
+                        turningLeft();
+                        turningLeft();
+                    }
+                    case "South" -> turningLeft();
+                }
+            }
+        }
+        direction = desiredDirection;
+    }
+
+    private void moveSteps(int steps) {
+        for (int i = 0; i < steps; i++) {
+            forward();
+        }
+    }
+
 
     public void puttingBeeper() {
         putBeeper();

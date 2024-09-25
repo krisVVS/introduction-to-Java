@@ -10,30 +10,9 @@ public class Main {
         OntoRobot robot = new OntoRobot(1, 2, East, 29);
         World.setSize(40,50);
         World.setVisible();
-        System.out.println(robot.getDirection());
-        System.out.println(robot.getStreet());
-        System.out.println(robot.getAvenue());
-        System.out.println(robot.getBeepers());
+        World.setDelay(0);
 
-        robot.forward();
-        System.out.println(robot.getDirection());
-        System.out.println(robot.getStreet());
-        System.out.println(robot.getAvenue());
-        System.out.println(robot.getBeepers());
-
-        robot.turningRight();
-        System.out.println(robot.getDirection());
-        System.out.println(robot.getStreet());
-        System.out.println(robot.getAvenue());
-        System.out.println(robot.getBeepers());
-
-        robot.turningLeft();
-        robot.turningLeft();
-        robot.forward();
-        System.out.println(robot.getDirection());
-        System.out.println(robot.getStreet());
-        System.out.println(robot.getAvenue());
-        System.out.println(robot.getBeepers());
+        robot.moveTo(12,15);
 
 
     }
