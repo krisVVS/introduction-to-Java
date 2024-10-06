@@ -1,50 +1,65 @@
 package com.onto.javacourse.objectsinjava.homogeneoustree;
-
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A simple tree structure where each node can have multiple children of the same type.
+ *
+ * @param <T> The type of value stored in each node.
+ */
 class HomogeneousTree<T> {
     private T value;
     private String name;
-    private List<HomogeneousTree<T>> children;
+    public List<HomogeneousTree<T>> children;
 
+    /**
+     * Creates a new tree node with a given value and name.
+     *
+     * @param value The value stored in this node.
+     * @param name  The name of this node.
+     */
     public HomogeneousTree(T value, String name) {
         this.value = value;
         this.name = name;
         this.children = new ArrayList<>();
     }
 
+    /**
+     * Gets the value of this node.
+     *
+     * @return The value stored in the node.
+     */
     public T getValue() {
         return value;
     }
 
+    /**
+     * Gets the name of this node.
+     *
+     * @return The name of the node.
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Adds a child node to this node.
+     *
+     * @param child The child node to add.
+     */
     public void addChild(HomogeneousTree<T> child) {
-        this.children.add(child);
+        children.add(child);
     }
 
+    /**
+     * Prints the tree structure starting from this node.
+     *
+     * @param prefix The prefix to show the tree level.
+     */
     public void printTree(String prefix) {
         System.out.println(prefix + name + " (" + value + ")");
         for (HomogeneousTree<T> child : children) {
             child.printTree(prefix + "-");
         }
-    }
-    public static void main(String[] args) {
-        HomogeneousTree<Integer> root = new HomogeneousTree<>(1, "Root");
-        HomogeneousTree<Integer> child1 = new HomogeneousTree<>(2, "Child 1");
-        HomogeneousTree<Integer> child2 = new HomogeneousTree<>(3, "Child 2");
-
-        root.addChild(child1);
-        root.addChild(child2);
-
-        child1.addChild(new HomogeneousTree<>(4, "Child 1.1"));
-        child1.addChild(new HomogeneousTree<>(5, "Child 1.2"));
-
-        child2.addChild(new HomogeneousTree<>(6, "Child 2.1"));
-
-        root.printTree(""); // Print the tree structure
     }
 }
