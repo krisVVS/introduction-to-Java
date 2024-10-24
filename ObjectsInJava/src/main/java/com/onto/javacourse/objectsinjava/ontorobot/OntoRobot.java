@@ -2,7 +2,10 @@ package com.onto.javacourse.objectsinjava.ontorobot;
 import com.onto.javacourse.objectsinjava.drawers.DrawerFactory;
 import com.onto.javacourse.objectsinjava.hierachyoffigures.Figure;
 import com.onto.javacourse.objectsinjava.interfaces.Drawer;
+import static com.onto.javacourse.objectsinjava.directionconstants.DirectionConstants.*;
 import kareltherobot.*;
+
+
 
 /**
  * Represents an OntoRobot that extends the functionality of UrRobot.
@@ -74,10 +77,10 @@ public class OntoRobot extends UrRobot {
         turnLeft();
         turnLeft();
         switch (direction) {
-            case "East" -> direction = "South";
-            case "South" -> direction = "West";
-            case "West" -> direction = "North";
-            case "North" -> direction = "East";
+            case EAST -> direction = "South";
+            case SOUTH -> direction = "West";
+            case WEST -> direction = "North";
+            case NORTH -> direction = "East";
         }
     }
 
@@ -87,10 +90,10 @@ public class OntoRobot extends UrRobot {
     public void turningLeft() {
         turnLeft();
         switch (direction) {
-            case "East" -> direction = "North";
-            case "South" -> direction = "East";
-            case "West" -> direction = "South";
-            case "North" -> direction = "West";
+            case EAST -> direction = "North";
+            case SOUTH -> direction = "East";
+            case WEST -> direction = "South";
+            case NORTH -> direction = "West";
         }
     }
 
@@ -100,10 +103,10 @@ public class OntoRobot extends UrRobot {
     public void forward() {
         move();
         switch (direction) {
-            case "East" -> avenue += 1;
-            case "South" -> street -= 1;
-            case "West" -> avenue -= 1;
-            case "North" -> street += 1;
+            case EAST -> avenue += 1;
+            case SOUTH -> street -= 1;
+            case WEST -> avenue -= 1;
+            case NORTH -> street += 1;
         }
     }
 
@@ -133,44 +136,44 @@ public class OntoRobot extends UrRobot {
 
     public void turnToDirection(String desiredDirection) {
         switch (direction) {
-            case "North" -> {
+            case NORTH -> {
                 switch (desiredDirection) {
-                    case "East" -> turningRight();
-                    case "South" -> {
+                    case EAST -> turningRight();
+                    case SOUTH -> {
                         turningLeft();
                         turningLeft();
                     }
-                    case "West" -> turningLeft();
+                    case WEST -> turningLeft();
                 }
             }
-            case "East" -> {
+            case EAST -> {
                 switch (desiredDirection) {
-                    case "South" -> turningRight();
-                    case "West" -> {
+                    case SOUTH -> turningRight();
+                    case WEST -> {
                         turningLeft();
                         turningLeft();
                     }
-                    case "North" -> turningLeft();
+                    case NORTH -> turningLeft();
                 }
             }
-            case "South" -> {
+            case SOUTH -> {
                 switch (desiredDirection) {
-                    case "West" -> turningRight();
-                    case "North" -> {
+                    case WEST -> turningRight();
+                    case NORTH -> {
                         turningLeft();
                         turningLeft();
                     }
-                    case "East" -> turningLeft();
+                    case EAST -> turningLeft();
                 }
             }
-            case "West" -> {
+            case WEST -> {
                 switch (desiredDirection) {
-                    case "North" -> turningRight();
-                    case "East" -> {
+                    case NORTH -> turningRight();
+                    case EAST -> {
                         turningLeft();
                         turningLeft();
                     }
-                    case "South" -> turningLeft();
+                    case SOUTH -> turningLeft();
                 }
             }
         }

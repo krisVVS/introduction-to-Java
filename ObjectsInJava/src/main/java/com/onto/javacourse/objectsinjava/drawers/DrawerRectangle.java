@@ -2,6 +2,7 @@ package com.onto.javacourse.objectsinjava.drawers;
 import com.onto.javacourse.objectsinjava.hierachyoffigures.Rectangle;
 import com.onto.javacourse.objectsinjava.interfaces.Drawer;
 import com.onto.javacourse.objectsinjava.ontorobot.OntoRobot;
+import static com.onto.javacourse.objectsinjava.directionconstants.DirectionConstants.*;
 
 /**
  * The {@code DrawerRectangle} class implements the {@code Drawer} interface
@@ -27,9 +28,9 @@ public class DrawerRectangle implements Drawer<Rectangle> {
         robot.moveTo(rectangle.getStartPoint().getStartX(), rectangle.getStartPoint().getStartY());
 
         switch (robot.getDirection()) {
-            case "South" -> robot.turningLeft();
-            case "North" -> robot.turningRight();
-            case "West" -> {
+            case SOUTH -> robot.turningLeft();
+            case NORTH -> robot.turningRight();
+            case WEST -> {
                 robot.turningLeft();
                 robot.turningLeft();
             }
