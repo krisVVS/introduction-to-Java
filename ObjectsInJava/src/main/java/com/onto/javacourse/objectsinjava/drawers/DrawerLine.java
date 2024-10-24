@@ -49,10 +49,8 @@ public class DrawerLine implements Drawer<Line> {
 
         double slope = (double) (endY - startY) / (endX - startX);
         double intercept = startY - slope * startX;
-
         for (int x = startX; x <= endX; x++) {
             double y = slope * x + intercept;
-
             if (y == Math.floor(y)) {
                 robot.moveTo(x, (int) y);
                 robot.puttingBeeper();

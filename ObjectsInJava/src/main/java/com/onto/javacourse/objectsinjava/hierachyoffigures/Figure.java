@@ -13,4 +13,3 @@ package com.onto.javacourse.objectsinjava.hierachyoffigures;
  */
 public abstract class Figure {
 }
-
