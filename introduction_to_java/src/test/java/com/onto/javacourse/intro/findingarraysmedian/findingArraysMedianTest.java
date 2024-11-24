@@ -1,9 +1,9 @@
-package com.onto.javacourse.intro.findingArraysMedian;
+package com.onto.javacourse.intro.findingarraysmedian;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class FindingArraysMedianTest {
-    FindingArraysMedian  findingArraysMedian = new FindingArraysMedian();
+    FindingArraysMedian findingArraysMedian = new FindingArraysMedian();
 
     @Test
      void testFindMedianPosition_EmptyArray() {
