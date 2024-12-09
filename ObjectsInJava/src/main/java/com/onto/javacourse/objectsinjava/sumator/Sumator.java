@@ -2,6 +2,8 @@ package com.onto.javacourse.objectsinjava.sumator;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * The {@code Sumator} class provides methods to sum various types of numbers. It supports summing
@@ -9,6 +11,7 @@ import java.math.BigInteger;
  * BigInteger} and {@link BigDecimal}.
  */
 public class Sumator {
+  private static final Logger LOGGER = LoggerFactory.getLogger(Sumator.class);
 
   /**
    * Sums two integers.
@@ -33,17 +36,27 @@ public class Sumator {
   }
 
   /**
-   * Sums two strings that represent numbers. The strings are parsed as doubles before summing.
+   * Adds two numeric values provided as strings.
    *
-   * @param firstNum the first string representing a number
-   * @param secondNum the second string representing a number
-   * @return the sum of the parsed numbers
-   * @throws NumberFormatException if either string cannot be parsed as a number
+   * @param firstNum the first number as a string
+   * @param secondNum the second number as a string
+   * @return the sum of the two numbers
+   * @throws IllegalArgumentException if inputs are null or non-numeric
    */
-  public double sum(String firstNum, String secondNum) throws NumberFormatException {
-    double num1 = Double.parseDouble(firstNum);
-    double num2 = Double.parseDouble(secondNum);
-    return num1 + num2;
+  public double sum(String firstNum, String secondNum) {
+    if (firstNum == null || secondNum == null) {
+      LOGGER.error("Null input detected");
+      throw new IllegalArgumentException("Input values cannot be null.");
+    }
+
+    try {
+      double num1 = Double.parseDouble(firstNum);
+      double num2 = Double.parseDouble(secondNum);
+      return num1 + num2;
+    } catch (NumberFormatException e) {
+      LOGGER.error("Invalid numeric input");
+      throw new IllegalArgumentException("Both inputs must be numeric values.");
+    }
   }
 
   /**
