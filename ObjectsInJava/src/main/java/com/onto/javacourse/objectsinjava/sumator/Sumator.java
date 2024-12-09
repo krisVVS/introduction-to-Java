@@ -36,7 +36,7 @@ public class Sumator {
   }
 
   /**
-   * Sums two numeric strings.
+   * Sums two strings that represent numbers. The strings are parsed as doubles before summing.
    *
    * <p>Parses the input strings to double values and returns their sum. If the inputs are invalid
    * (non-numeric or null), logs an error and returns {@code 0.0}.
