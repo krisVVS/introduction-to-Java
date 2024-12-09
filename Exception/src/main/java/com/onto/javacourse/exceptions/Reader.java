@@ -32,4 +32,13 @@ public class Reader {
       throw new NumberFormatException("Not an integer");
     }
   }
+
+  public static void main(String[] args) {
+    try {
+      int number = ReadNumber();
+      System.out.println("You entered: " + number);
+    } catch (NumberOutOtRangeException e) {
+      System.err.println("Error: " + e.getMessage());
+    }
+  }
 }
