@@ -28,16 +28,29 @@ class SumatorTest {
   }
 
   @Test
-  void testNumberFormatException() {
-    assertThrows(NumberFormatException.class, () -> sumator.sum("abc", "123"));
-    assertThrows(NumberFormatException.class, () -> sumator.sum("123", "xyz"));
-    assertThrows(NumberFormatException.class, () -> sumator.sum("1.2e3", "12a"));
+  void testNullInputs() {
+    Exception exception1 =
+        assertThrows(IllegalArgumentException.class, () -> sumator.sum(null, "5.5"));
+    assertEquals("Input values cannot be null.", exception1.getMessage());
+
+    Exception exception2 =
+        assertThrows(IllegalArgumentException.class, () -> sumator.sum("5.5", null));
+    assertEquals("Input values cannot be null.", exception2.getMessage());
   }
 
   @Test
-  void testNullPointerException() {
-    assertThrows(NullPointerException.class, () -> sumator.sum(null, "123"));
-    assertThrows(NullPointerException.class, () -> sumator.sum("123", null));
+  void testInvalidNumericInputs() {
+    Exception exception1 =
+        assertThrows(IllegalArgumentException.class, () -> sumator.sum("abc", "5.5"));
+    assertEquals("Both inputs must be numeric values.", exception1.getMessage());
+
+    Exception exception2 =
+        assertThrows(IllegalArgumentException.class, () -> sumator.sum("5.5", "xyz"));
+    assertEquals("Both inputs must be numeric values.", exception2.getMessage());
+
+    Exception exception3 =
+        assertThrows(IllegalArgumentException.class, () -> sumator.sum("123abc", "456def"));
+    assertEquals("Both inputs must be numeric values.", exception3.getMessage());
   }
 
   @Test
