@@ -36,26 +36,26 @@ public class Sumator {
   }
 
   /**
-   * Sums two numeric strings.
-   *
-   * <p>Parses the input strings to double values and returns their sum. If the inputs are invalid
-   * (non-numeric or null), logs an error and returns {@code 0.0}.
+   * Adds two numeric values provided as strings.
    *
    * @param firstNum the first number as a string
    * @param secondNum the second number as a string
-   * @return the sum of the two numbers, or {@code 0.0} if an error occurs
+   * @return the sum of the two numbers
+   * @throws IllegalArgumentException if inputs are null or non-numeric
    */
   public double sum(String firstNum, String secondNum) {
+    if (firstNum == null || secondNum == null) {
+      LOGGER.error("Null input detected");
+      throw new IllegalArgumentException("Input values cannot be null.");
+    }
+
     try {
-      double number1 = Double.parseDouble(firstNum);
-      double number2 = Double.parseDouble(secondNum);
-      return number1 + number2;
+      double num1 = Double.parseDouble(firstNum);
+      double num2 = Double.parseDouble(secondNum);
+      return num1 + num2;
     } catch (NumberFormatException e) {
-      LOGGER.error("Invalid number format:");
-      throw new NumberFormatException();
-    } catch (NullPointerException e) {
-      LOGGER.error("Null input provided for one or both parameters.");
-      throw new NullPointerException();
+      LOGGER.error("Invalid numeric input");
+      throw new IllegalArgumentException("Both inputs must be numeric values.");
     }
   }
 
