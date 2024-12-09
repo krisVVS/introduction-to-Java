@@ -28,8 +28,29 @@ class SumatorTest {
   }
 
   @Test
-  void testSumStringsInvalidInput() {
-    assertThrows(NumberFormatException.class, () -> sumator.sum("abc", "20.3"));
+  void testNullInputs() {
+    Exception exception1 =
+        assertThrows(IllegalArgumentException.class, () -> sumator.sum(null, "5.5"));
+    assertEquals("Input values cannot be null.", exception1.getMessage());
+
+    Exception exception2 =
+        assertThrows(IllegalArgumentException.class, () -> sumator.sum("5.5", null));
+    assertEquals("Input values cannot be null.", exception2.getMessage());
+  }
+
+  @Test
+  void testInvalidNumericInputs() {
+    Exception exception1 =
+        assertThrows(IllegalArgumentException.class, () -> sumator.sum("abc", "5.5"));
+    assertEquals("Both inputs must be numeric values.", exception1.getMessage());
+
+    Exception exception2 =
+        assertThrows(IllegalArgumentException.class, () -> sumator.sum("5.5", "xyz"));
+    assertEquals("Both inputs must be numeric values.", exception2.getMessage());
+
+    Exception exception3 =
+        assertThrows(IllegalArgumentException.class, () -> sumator.sum("123abc", "456def"));
+    assertEquals("Both inputs must be numeric values.", exception3.getMessage());
   }
 
   @Test
