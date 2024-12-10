@@ -2,10 +2,23 @@ package com.onto.javacourse.exceptions;
 
 import java.util.Scanner;
 
+/**
+ * Reads numbers from the console within the range 0-100.
+ *
+ * <p>Ensures the input is numeric and within range. Throws a {@link NumberOutOtRangeException} for
+ * invalid inputs or out-of-range values.
+ */
 public class Reader {
-  public static int ReadNumber() throws NumberOutOtRangeException {
+  /**
+   * Reads a number from the console and ensures it is in the 0-100 range.
+   *
+   * @return the number if it is within the valid range
+   * @throws NumberOutOtRangeException if the number is outside the 0-100 range
+   * @throws NumberFormatException if the input is not a valid number
+   */
+  public static int readNumber() throws NumberOutOtRangeException {
     Scanner scanner = new Scanner(System.in);
-    System.out.print("Enter an integer: ");
+    System.out.print("Enter an integer (0-100): ");
     String input = scanner.nextLine();
     try {
       int number = Integer.parseInt(input);
@@ -15,15 +28,6 @@ public class Reader {
       return number;
     } catch (NumberFormatException e) {
       throw new NumberFormatException("Not an integer");
-    }
-  }
-
-  public static void main(String[] args) {
-    try {
-      int number = ReadNumber();
-      System.out.println("You entered: " + number);
-    } catch (NumberOutOtRangeException e) {
-      System.err.println("Error: " + e.getMessage());
     }
   }
 }
