@@ -1,6 +1,5 @@
 package com.onto.javacourse.exceptions;
 
-import com.onto.javacourse.between0n100.NumberOutOtRangeException;
 import java.util.Scanner;
 
 /**
