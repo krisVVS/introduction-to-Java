@@ -2,9 +2,7 @@ package com.onto.javacourse.exceptions;
 
 import com.onto.javacourse.between0n100.NumberOutOtRangeException;
 import org.junit.jupiter.api.Test;
-
 import java.io.ByteArrayInputStream;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class ReaderTest {
