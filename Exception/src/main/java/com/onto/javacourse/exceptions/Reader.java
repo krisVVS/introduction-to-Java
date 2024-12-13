@@ -1,5 +1,6 @@
 package com.onto.javacourse.exceptions;
 
+import com.onto.javacourse.between0n100.NumberOutOtRangeException;
 import java.util.Scanner;
 
 /**
@@ -16,7 +17,7 @@ public class Reader {
    * @throws NumberOutOtRangeException if the number is outside the 0-100 range
    * @throws NumberFormatException if the input is not a valid number
    */
-  public static int readNumber() throws NumberOutOtRangeException {
+  public static int readNumber() {
     Scanner scanner = new Scanner(System.in);
     System.out.print("Enter an integer (0-100): ");
     String input = scanner.nextLine();
