@@ -1,5 +1,6 @@
 package com.onto.javacourse.exceptions;
 
+import com.onto.javacourse.between0n100.NumberOutOtRangeException;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
@@ -8,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ReaderTest {
   @Test
-  void testValidInput() throws NumberOutOtRangeException {
+  void testValidInput()  {
     String input = "50";
     System.setIn(new ByteArrayInputStream(input.getBytes()));
 
