@@ -29,7 +29,6 @@ class SumatorTest {
 
   @Test
   void testNumberFormatException() {
-    // Test invalid numeric string inputs
     assertEquals(0, sumator.sum("abc", "123"));
     assertEquals(0, sumator.sum("123", "xyz"));
     assertEquals(0, sumator.sum("1.2e3", "12a"));
@@ -37,7 +36,6 @@ class SumatorTest {
 
   @Test
   void testNullPointerException() {
-    // Test null inputs
     assertEquals(0, sumator.sum(null, "123"));
     assertEquals(0, sumator.sum("123", null));
   }
