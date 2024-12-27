@@ -38,8 +38,8 @@ public class Sumator {
   /**
    * Sums two numeric strings.
    *
-   * <p>Parses the input strings to double values and returns their sum. If the inputs
-   * are invalid (non-numeric or null), logs an error and returns {@code 0.0}.
+   * <p>Parses the input strings to double values and returns their sum. If the inputs are invalid
+   * (non-numeric or null), logs an error and returns {@code 0.0}.
    *
    * @param firstNum the first number as a string
    * @param secondNum the second number as a string
@@ -52,10 +52,10 @@ public class Sumator {
       return number1 + number2;
     } catch (NumberFormatException e) {
       LOGGER.error("Invalid number format:");
-      return 0;
+      throw new NumberFormatException();
     } catch (NullPointerException e) {
       LOGGER.error("Null input provided for one or both parameters.");
-      return 0;
+      throw new NullPointerException();
     }
   }
 
