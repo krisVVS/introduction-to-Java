@@ -13,6 +13,7 @@
         <module>introduction_to_java</module>
         <module>ObjectsInJava</module>
         <module>Exception</module>
+        <module>Reflection_Annotations_RegEx</module>
     </modules>
 
     <properties>
