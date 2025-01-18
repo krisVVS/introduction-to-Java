@@ -34,7 +34,7 @@ class DisplayerTest {
     TestClass instance = new TestClass(123, "Test String");
     Displayer.returnClassDetails(instance);
     assertTrue(logAppender.contains("Class: com.onto.javacourse.DisplayerTest$TestClass", "INFO"));
-    assertTrue(logAppender.contains("private int value = 123", "INFO"));
+    assertTrue(logAppender.contains("public int value = 123", "INFO"));
     assertTrue(logAppender.contains("private String text = Test String", "INFO"));
     assertTrue(logAppender.contains("public int getValue()", "INFO"));
     assertTrue(logAppender.contains("public void setValue(int)", "INFO"));
@@ -44,7 +44,7 @@ class DisplayerTest {
   void testReturnClassDetails_withInaccessibleField() {
     TestClass instance = new TestClass(123, "Test String");
     Displayer.returnClassDetails(instance);
-    assertTrue(logAppender.contains("private int value = 123", "INFO"));
+    assertTrue(logAppender.contains("public int value = 123", "INFO"));
     assertTrue(logAppender.contains("private String text = Test String", "INFO"));
   }
 
@@ -59,7 +59,7 @@ class DisplayerTest {
   }
 
   private static class TestClass {
-    private int value;
+    public int value;
     private String text;
 
     public TestClass(int value, String text) {
