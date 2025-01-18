@@ -40,6 +40,7 @@ public class Displayer {
         LOGGER.warn("{} {} = [inaccessible]",
             Modifier.toString(field.getModifiers()),
             field.getName());
+        throw new RuntimeException(e);
       }
     }
     LOGGER.info("");
