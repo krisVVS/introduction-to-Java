@@ -12,7 +12,6 @@
     <modules>
         <module>introduction_to_java</module>
         <module>ObjectsInJava</module>
-        <module>ReflectionAnnotationRegEx</module>
     </modules>
 
     <properties>
