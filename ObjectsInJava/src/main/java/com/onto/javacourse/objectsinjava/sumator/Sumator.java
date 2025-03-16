@@ -2,6 +2,8 @@ package com.onto.javacourse.objectsinjava.sumator;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * The {@code Sumator} class provides methods to sum various types of numbers. It supports summing
@@ -9,6 +11,7 @@ import java.math.BigInteger;
  * BigInteger} and {@link BigDecimal}.
  */
 public class Sumator {
+  private static final Logger LOGGER = LoggerFactory.getLogger(Sumator.class);
 
   /**
    * Sums two integers.
@@ -33,17 +36,27 @@ public class Sumator {
   }
 
   /**
-   * Sums two strings that represent numbers. The strings are parsed as doubles before summing.
+   * Sums two numeric strings.
    *
-   * @param firstNum the first string representing a number
-   * @param secondNum the second string representing a number
-   * @return the sum of the parsed numbers
-   * @throws NumberFormatException if either string cannot be parsed as a number
+   * <p>Parses the input strings to double values and returns their sum. If the inputs are invalid
+   * (non-numeric or null), logs an error and returns {@code 0.0}.
+   *
+   * @param firstNum the first number as a string
+   * @param secondNum the second number as a string
+   * @return the sum of the two numbers, or {@code 0.0} if an error occurs
    */
-  public double sum(String firstNum, String secondNum) throws NumberFormatException {
-    double num1 = Double.parseDouble(firstNum);
-    double num2 = Double.parseDouble(secondNum);
-    return num1 + num2;
+  public double sum(String firstNum, String secondNum) {
+    try {
+      double number1 = Double.parseDouble(firstNum);
+      double number2 = Double.parseDouble(secondNum);
+      return number1 + number2;
+    } catch (NumberFormatException e) {
+      LOGGER.error("Invalid number format:");
+      throw new NumberFormatException();
+    } catch (NullPointerException e) {
+      LOGGER.error("Null input provided for one or both parameters.");
+      throw new NullPointerException();
+    }
   }
 
   /**
