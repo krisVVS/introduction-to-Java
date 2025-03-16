@@ -44,7 +44,7 @@ public class ElementList {
    */
   public void remove() {
     if (size == 0) {
-      throw new EmptyListException("Cannot remove element: The list is empty.");
+      throw new EmptyListException("Cannot remove element: The list is empty.", new RuntimeException());
     }
     elements[size - 1] = null; // Optional: clear the reference
     size--;

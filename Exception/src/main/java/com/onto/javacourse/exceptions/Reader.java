@@ -10,6 +10,7 @@ import java.util.Scanner;
  * invalid inputs or out-of-range values.
  */
 public class Reader {
+
   /**
    * Reads a number from the console and ensures it is in the 0-100 range.
    *
@@ -24,7 +25,7 @@ public class Reader {
     try {
       int number = Integer.parseInt(input);
       if (number < 0 || number > 100) {
-        throw new NumberOutOtRangeException("Number must be between 0 and 100");
+        throw new NumberOutOtRangeException("Number must be between 0 and 100", new RuntimeException());
       }
       return number;
     } catch (NumberFormatException e) {
