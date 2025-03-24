@@ -15,14 +15,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
       - name: Set up JDK 21
         uses: actions/setup-java@v3
         with:
           java-version: '21'
           distribution: 'temurin'
-          cache: 'maven'
-
       - name: Install Maven 3.9.9
         run: |
           sudo apt-get update
@@ -31,13 +28,10 @@ jobs:
           tar -xvzf apache-maven-3.9.9-bin.tar.gz
           sudo mv apache-maven-3.9.9 /opt/maven
           echo "export PATH=/opt/maven/bin:$PATH" >> $GITHUB_ENV
-
       - name: Verify Maven Installation
         run: mvn -version
-
       - name: Build project
         run: mvn clean compile
-
       - name: Cache Maven dependencies
         uses: actions/cache@v3
         with:
@@ -53,14 +47,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
       - name: Set up JDK 21
         uses: actions/setup-java@v3
         with:
           java-version: '21'
           distribution: 'temurin'
-          cache: 'maven'
-
       - name: Install Maven 3.9.9
         run: |
           sudo apt-get update
@@ -69,10 +60,8 @@ jobs:
           tar -xvzf apache-maven-3.9.9-bin.tar.gz
           sudo mv apache-maven-3.9.9 /opt/maven
           echo "export PATH=/opt/maven/bin:$PATH" >> $GITHUB_ENV
-
       - name: Verify Maven Installation
         run: mvn -version
-
       - name: Cache Maven dependencies
         uses: actions/cache@v3
         with:
@@ -80,18 +69,14 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
-
       - name: Install Xvfb
         run: sudo apt-get install -y xvfb
-
       - name: Start Xvfb
         run: Xvfb :99 -screen 0 1920x1080x24 & disown
         shell: bash
-
       - name: Set DISPLAY variable
         run: echo "DISPLAY=:99" >> $GITHUB_ENV
-
-      - name: Run tests with Headless Mode
+      - name: Run tests in Headless Mode
         run: mvn test -Djava.awt.headless=true
 
   quality:
@@ -101,14 +86,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
       - name: Set up JDK 21
         uses: actions/setup-java@v3
         with:
           java-version: '21'
           distribution: 'temurin'
-          cache: 'maven'
-
       - name: Install Maven 3.9.9
         run: |
           sudo apt-get update
@@ -117,10 +99,8 @@ jobs:
           tar -xvzf apache-maven-3.9.9-bin.tar.gz
           sudo mv apache-maven-3.9.9 /opt/maven
           echo "export PATH=/opt/maven/bin:$PATH" >> $GITHUB_ENV
-
       - name: Verify Maven Installation
         run: mvn -version
-
       - name: Cache Maven dependencies
         uses: actions/cache@v3
         with:
@@ -128,6 +108,5 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
-
       - name: Run CheckStyle
         run: mvn checkstyle:check
