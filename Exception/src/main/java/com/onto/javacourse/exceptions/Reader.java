@@ -10,6 +10,7 @@ import java.util.Scanner;
  * invalid inputs or out-of-range values.
  */
 public class Reader {
+
   /**
    * Reads a number from the console and ensures it is in the 0-100 range.
    *
