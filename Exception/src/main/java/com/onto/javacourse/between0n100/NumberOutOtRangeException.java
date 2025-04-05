@@ -2,6 +2,7 @@ package com.onto.javacourse.between0n100;
 
 /** Exception thrown when a number is outside the valid range. */
 public class NumberOutOtRangeException extends RuntimeException {
+
   /**
    * Constructs a new NumberOutOfRangeException with the specified detail message.
    *
