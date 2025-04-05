@@ -17,7 +17,7 @@ class DrawerPointTest {
   void setUp() {
     World.setSize(10, 10);
     World.setDelay(0);
-    World.setVisible(true);
+    World.setVisible(false);
 
     robot = new OntoRobot(1, 1, Directions.East, 10);
     drawerPoint = new DrawerPoint();
