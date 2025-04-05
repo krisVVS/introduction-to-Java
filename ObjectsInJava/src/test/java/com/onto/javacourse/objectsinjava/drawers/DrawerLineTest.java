@@ -18,7 +18,7 @@ class DrawerLineTest {
   void setUp() {
     World.setSize(10, 10);
     World.setDelay(0);
-    World.setVisible(true);
+    World.setVisible(false);
 
     robot = new OntoRobot(1, 1, Directions.East, 100);
     drawerLine = new DrawerLine();
