@@ -24,7 +24,6 @@ class ConsoleReaderTest {
 
   @Test
   void testReadInt_InvalidThenValidInput() {
-    String input = "notANumber"+System.lineSeparator()+"123"+System.lineSeparator();
     ConsoleReader reader = new ConsoleReader(new ByteArrayInputStream(input.getBytes()));
     int result = reader.readInt();
     assertEquals(123, result);
@@ -32,7 +31,6 @@ class ConsoleReaderTest {
 
   @Test
   void testReadChar_ValidInput() {
-    String input = "a"+System.lineSeparator();
     ConsoleReader reader = new ConsoleReader(new ByteArrayInputStream(input.getBytes()));
     char result = reader.readChar();
     assertEquals('a', result);
@@ -40,7 +38,6 @@ class ConsoleReaderTest {
 
   @Test
   void testReadChar_InvalidThenValidInput() {
-    String input = "abc"+System.lineSeparator()+"x"+System.lineSeparator();
     ConsoleReader reader = new ConsoleReader(new ByteArrayInputStream(input.getBytes()));
     char result = reader.readChar();
     assertEquals('x', result);
@@ -48,7 +45,6 @@ class ConsoleReaderTest {
 
   @Test
   void testReadFloat_ValidInput() {
-    String input = "3.14"+System.lineSeparator();
     ConsoleReader reader = new ConsoleReader(new ByteArrayInputStream(input.getBytes()));
     float result = reader.readFloat();
     assertEquals(3.14f, result);
@@ -56,7 +52,6 @@ class ConsoleReaderTest {
 
   @Test
   void testReadFloat_InvalidThenValidInput() {
-    String input = "pi"+System.lineSeparator()+"2.71"+System.lineSeparator();
     ConsoleReader reader = new ConsoleReader(new ByteArrayInputStream(input.getBytes()));
     float result = reader.readFloat();
     assertEquals(2.71f, result);
