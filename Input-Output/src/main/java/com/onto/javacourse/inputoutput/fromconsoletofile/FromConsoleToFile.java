@@ -30,7 +30,7 @@ public class FromConsoleToFile {
    *
    * @param filename The name of the file where the input text will be written.
    */
-  public void writeToFile(String filename) throws IOException {
+  public void writeToFile(String filename) {
     try (
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename))
@@ -38,14 +38,13 @@ public class FromConsoleToFile {
       String line;
 
       System.out.println("Enter text to write to file. Type '.' on a new line to stop.");
-      while ((line = reader.readLine()) != null && !".".equals(line)) {
+      while ((line = reader.readLine()) != null && !line.equals(".")) {
         writer.write(line);
         writer.newLine();
       }
       System.out.println("Content has been written to " + filename);
     } catch (IOException e) {
       LOGGER.error("Error during I/O operations: {}", e.getMessage());
-      throw new IOException();
     }
   }
 }

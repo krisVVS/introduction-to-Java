@@ -24,7 +24,7 @@ class FromConsoleToFileTest {
     File tempFile = File.createTempFile("test", ".txt");
     tempFile.deleteOnExit();
 
-    String simulatedInput = "testfile.txt"+System.lineSeparator()+"Hello, World!"+System.lineSeparator()+"This is a test."+System.lineSeparator()+"."+System.lineSeparator();
+    String simulatedInput = "testfile.txt\nHello, World!\nThis is a test.\n.\n";
     System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
 
     FromConsoleToFile fromConsoleToFile = new FromConsoleToFile();
@@ -45,7 +45,7 @@ class FromConsoleToFileTest {
     File tempFile = File.createTempFile("test_empty", ".txt");
     tempFile.deleteOnExit();
 
-    String simulatedInput = "test_empty.txt"+System.lineSeparator()+"."+System.lineSeparator();
+    String simulatedInput = "test_empty.txt\n.\n";
     System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
 
     FromConsoleToFile fromConsoleToFile = new FromConsoleToFile();
@@ -62,7 +62,7 @@ class FromConsoleToFileTest {
     File tempFile = File.createTempFile("test_resource", ".txt");
     tempFile.deleteOnExit();
 
-    String simulatedInput = "test_resource.txt"+System.lineSeparator()+"Line 1"+System.lineSeparator()+"."+System.lineSeparator();
+    String simulatedInput = "test_resource.txt\nLine 1\n.\n";
     System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
 
     FromConsoleToFile fromConsoleToFile = new FromConsoleToFile();
