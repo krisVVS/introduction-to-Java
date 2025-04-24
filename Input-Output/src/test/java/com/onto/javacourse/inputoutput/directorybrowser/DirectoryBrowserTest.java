@@ -1,6 +1,7 @@
 package com.onto.javacourse.inputoutput.directorybrowser;
 
 import org.junit.jupiter.api.Test;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,7 +11,6 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DirectoryBrowserTest {
-
   @Test
   public void testListContentWithFile() throws IOException {
     String testFilePath = "src/test/resources/testfile.txt";
