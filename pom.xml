@@ -16,6 +16,7 @@
         <module>ReflectionAnnotationRegEx</module>
         <module>Exception</module>
         <module>DesignPatterns</module>
+        <module>Collections</module>
     </modules>
 
     <properties>
