@@ -15,6 +15,7 @@
         <module>Input-Output</module>
         <module>ReflectionAnnotationRegEx</module>
         <module>Exception</module>
+        <module>Collections</module>
     </modules>
 
     <properties>
