@@ -24,7 +24,7 @@ class ConsoleReaderTest {
 
   @Test
   void testReadInt_InvalidThenValidInput() {
-    String input = "notANumber\n123\n";
+    String input = "notANumber"+System.lineSeparator()+"123"+System.lineSeparator();
     ConsoleReader reader = new ConsoleReader(new ByteArrayInputStream(input.getBytes()));
     int result = reader.readInt();
     assertEquals(123, result);
