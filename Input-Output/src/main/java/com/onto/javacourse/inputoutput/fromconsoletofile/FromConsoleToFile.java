@@ -38,7 +38,7 @@ public class FromConsoleToFile {
       String line;
 
       System.out.println("Enter text to write to file. Type '.' on a new line to stop.");
-      while ((line = reader.readLine()) != null && !line.equals(".")) {
+      while ((line = reader.readLine()) != null && !".".equals(line)) {
         writer.write(line);
         writer.newLine();
       }
