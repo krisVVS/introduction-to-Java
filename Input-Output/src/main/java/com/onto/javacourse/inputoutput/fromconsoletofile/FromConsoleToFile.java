@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,7 +31,7 @@ public class FromConsoleToFile {
    *
    * @param filename The name of the file where the input text will be written.
    */
-  public void writeToFile(String filename) {
+  public void writeToFile(String filename) throws IOException {
     try (
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename))
@@ -38,13 +39,14 @@ public class FromConsoleToFile {
       String line;
 
       System.out.println("Enter text to write to file. Type '.' on a new line to stop.");
-      while ((line = reader.readLine()) != null && !line.equals(".")) {
+      while ((line = reader.readLine()) != null && !".".equals(line)) {
         writer.write(line);
         writer.newLine();
       }
       System.out.println("Content has been written to " + filename);
     } catch (IOException e) {
       LOGGER.error("Error during I/O operations: {}", e.getMessage());
+      throw new IOException();
     }
   }
 }
