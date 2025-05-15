@@ -10,7 +10,7 @@ public class ReverseTextFileTest {
 
   @Test
   void testReversingFile() throws IOException {
-    String originalContent = "Line1\nLine2\nLine3\n";
+    String originalContent = "Line1"+System.lineSeparator()+"Line2"+System.lineSeparator()+"Line3"+System.lineSeparator();
     File file = new File(TEST_FILE_PATH);
 
     try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
