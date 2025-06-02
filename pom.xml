@@ -18,6 +18,7 @@
         <module>Collections</module>
         <module>ReflectionAnnotationRegEx</module>
         <module>Exception</module>
+        <module>ReflectionAnnotationRegEx</module>
     </modules>
 
     <properties>
