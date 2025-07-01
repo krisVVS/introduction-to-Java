@@ -41,16 +41,6 @@ jobs:
         with:
           java-version: '23'
           distribution: 'temurin'
-      - name: Install Maven 3.9.9
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y wget
-          wget https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz
-          tar -xvzf apache-maven-3.9.9-bin.tar.gz
-          sudo mv apache-maven-3.9.9 /opt/maven
-          echo "export PATH=/opt/maven/bin:$PATH" >> $GITHUB_ENV
-      - name: Verify Maven Installation
-        run: mvn -version
       - name: Cache Maven dependencies
         uses: actions/cache@v3
         with:
@@ -73,16 +63,6 @@ jobs:
         with:
           java-version: '23'
           distribution: 'temurin'
-      - name: Install Maven 3.9.9
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y wget
-          wget https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz
-          tar -xvzf apache-maven-3.9.9-bin.tar.gz
-          sudo mv apache-maven-3.9.9 /opt/maven
-          echo "export PATH=/opt/maven/bin:$PATH" >> $GITHUB_ENV
-      - name: Verify Maven Installation
-        run: mvn -version
       - name: Cache Maven dependencies
         uses: actions/cache@v3
         with:
