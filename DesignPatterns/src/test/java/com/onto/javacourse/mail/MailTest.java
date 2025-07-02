@@ -9,7 +9,6 @@ public class MailTest {
 
   @Test
   public void testMailBuilderWithAllFields() {
-    // Arrange
     List<String> cc = Arrays.asList("cc1@example.com", "cc2@example.com");
     List<String> attachments = Arrays.asList("file1.pdf", "file2.jpg");
 
