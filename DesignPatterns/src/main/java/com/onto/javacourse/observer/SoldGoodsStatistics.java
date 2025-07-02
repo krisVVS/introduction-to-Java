@@ -2,11 +2,13 @@ package com.onto.javacourse.observer;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * This class implements the Observer interface and maintains a list of sold goods.
  */
 public class SoldGoodsStatistics implements Observer {
+  Logger logger = Logger.getLogger(SoldGoodsStatistics.class.getName());
   private List<String> soldGoods = new ArrayList<>();
 
   /**
@@ -35,6 +37,6 @@ public class SoldGoodsStatistics implements Observer {
    * Prints the list of sold goods.
    */
   public void printSoldGoods() {
-    System.out.println("Sold goods: " + soldGoods);
+    logger.info("Sold goods: " + soldGoods);
   }
 }
