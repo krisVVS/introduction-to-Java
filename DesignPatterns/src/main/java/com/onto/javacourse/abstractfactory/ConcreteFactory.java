@@ -1,9 +1,12 @@
 package com.onto.javacourse.abstractfactory;
 
+import java.util.logging.Logger;
+
 /**
  * Concrete implementation of the MyClassFactory that creates instances of MyClass.
  */
 public class ConcreteFactory extends MyClassFactory {
+  Logger LOGGER = Logger.getLogger("ConcreteFactory");
 
   /**
    * Creates a new instance of MyClass using the default constructor.
@@ -28,7 +31,7 @@ public class ConcreteFactory extends MyClassFactory {
       Class<?> clazz = Class.forName(className);
       return (MyClass) clazz.getDeclaredConstructor().newInstance();
     } catch (ClassNotFoundException e) {
-      System.out.println("Class not found: " + className);
+      LOGGER.severe("Class not found: " + className);
       throw e;
     } catch (Exception e) {
       throw new RuntimeException("Error creating instance for class: " + className, e);
