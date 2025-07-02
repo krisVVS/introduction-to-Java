@@ -18,8 +18,8 @@ public class IntegerProxyTest {
   public void testIntegerProxyCreation() {
     IntegerProxy proxy = factory.createInstance(10);
 
-    assertNotNull(proxy, "Proxy should not be null");
-    assertEquals(10, proxy.getValue(), "Proxy value should be 10");
+    assertNotNull(proxy);
+    assertEquals(10, proxy.getValue());
   }
 
   @Test
@@ -28,7 +28,7 @@ public class IntegerProxyTest {
 
     proxy.setValue(20);
 
-    assertEquals(20, proxy.getValue(), "Proxy value should be 20 after setting it");
+    assertEquals(20, proxy.getValue());
   }
 
   @Test
@@ -36,14 +36,14 @@ public class IntegerProxyTest {
     IntegerProxy proxy = factory.createInstance(15);
 
     String expected = "IntegerProxy{value=15}";
-    assertEquals(expected, proxy.toString(), "toString method should match expected format");
+    assertEquals(expected, proxy.toString());
   }
 
   @Test
   public void testIntegerFactoryCreatesCorrectProxy() {
     IntegerProxy proxy = factory.createInstance(30);
 
-    assertNotNull(proxy, "Factory should return a non-null proxy");
-    assertEquals(30, proxy.getValue(), "Factory should create a proxy with the correct value");
+    assertNotNull(proxy);
+    assertEquals(30, proxy.getValue());
   }
 }

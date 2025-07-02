@@ -42,6 +42,6 @@ public class IntegerProxy {
    */
   @Override
   public String toString() {
-    return "IntegerProxy{" + "value=" + realInteger + '}';
+    return "IntegerProxy{value=" + realInteger + '}';
   }
 }
