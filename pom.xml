@@ -15,6 +15,7 @@
         <module>ReflectionAnnotationRegEx</module>
         <module>Exception</module>
         <module>Input-Output</module>
+        <module>DesignPatterns</module>
     </modules>
 
     <properties>
