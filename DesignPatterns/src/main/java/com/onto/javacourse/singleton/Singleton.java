@@ -1,17 +1,19 @@
 package com.onto.javacourse.singleton;
 
+import java.util.logging.Logger;
+
 /**
  * Singleton class to ensure only one instance is created.
  */
 public class Singleton {
-
+  Logger LOGGER = Logger.getLogger("com.onto.javacourse.singleton");
   private static Singleton instance;
 
   /**
    * Private constructor to prevent instantiation.
    */
   private Singleton() {
-    System.out.println("Singleton created");
+    LOGGER.info("Singleton created");
   }
 
   /**

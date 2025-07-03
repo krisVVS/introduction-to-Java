@@ -11,12 +11,12 @@ class SingletonTest {
     Singleton singleton1 = Singleton.getInstance();
     Singleton singleton2 = Singleton.getInstance();
 
-    assertSame(singleton1, singleton2, "Both instances should be the same");
+    assertSame(singleton1, singleton2);
   }
 
   @Test
   void testSingletonCreation() {
     Singleton singleton = Singleton.getInstance();
-    assertNotNull(singleton, "Singleton instance should not be null");
+    assertNotNull(singleton);
   }
 }
