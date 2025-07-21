@@ -28,7 +28,7 @@ public class Replacer {
     Pattern pattern = Pattern.compile(bulgarianIBANPattern);
     Matcher matcher = pattern.matcher(input);
     String maskedOutput = matcher.replaceAll("****");
-    if (!input.equals(maskedOutput)) {
+    if (!maskedOutput.equals(input)) {
       LOGGER.info("Replacements made in the input string.");
     } else {
       LOGGER.info("No Bulgarian IBANs found to replace.");
