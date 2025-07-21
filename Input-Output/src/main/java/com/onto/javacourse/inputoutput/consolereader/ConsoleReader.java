@@ -88,3 +88,4 @@ public class ConsoleReader {
       return readFloat();
     }
   }
+}
