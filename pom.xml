@@ -16,10 +16,6 @@
         <module>ReflectionAnnotationRegEx</module>
         <module>Exception</module>
         <module>Collections</module>
-        <module>ReflectionAnnotationRegEx</module>
-        <module>Exception</module>
-        <module>ReflectionAnnotationRegEx</module>
-        <module>Input-Output</module>
     </modules>
 
     <properties>
