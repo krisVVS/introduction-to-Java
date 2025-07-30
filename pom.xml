@@ -17,6 +17,7 @@
         <module>ReflectionAnnotationRegEx</module>
         <module>Exception</module>
         <module>DesignPatterns</module>
+        <module>Threads</module>
     </modules>
 
     <properties>
