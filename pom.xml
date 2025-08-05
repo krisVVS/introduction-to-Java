@@ -13,10 +13,10 @@
         <module>introduction_to_java</module>
         <module>ObjectsInJava</module>
         <module>Input-Output</module>
-        <module>Collections</module>
         <module>ReflectionAnnotationRegEx</module>
         <module>Exception</module>
         <module>DesignPatterns</module>
+        <module>Collections</module>
     </modules>
 
     <properties>
